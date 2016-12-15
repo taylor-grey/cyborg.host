@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>CG</title>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script type="text/javascript">
+$(document).ready(function()
+{
+  //hide the all of the element with class msg_body
+  $(".msg_body").hide();
+  //toggle the componenet with class msg_body
+  $(".msg_head").click(function()
+  {
+    $(this).next(".msg_body").slideToggle(600);
+  });
+});
+            </script>
+
+
+            <style>
+body {
+background-color: #000000;
+}
+object.leftcorner {
+float: left; 
+width: 15%;
+}
+object.rightcorner {
+float: right; 
+width: 15%;
+}
+object.monogram {
+margin-top:  -20%; 
+margin-right: 45%; 
+margin-left: 45%; 
+width: 10%;
+}
+object.icon {
+height: 1vw;
+}
+div.msg_list {
+display: block;
+}
+p {
+padding: 0 0 1em;
+border-style: none;
+border-left-width: 1px;
+border-bottom-width: 0px;
+border-top-width: 0px;
+border-right-width: 0px;
+border-color: #000000;
+font-family: "Courier New", Courier, monospace;
+font-size: 150%;
+}
+.msg_list {
+margin-left: auto;
+margin-right: auto;
+padding: 0px;
+width: 100%;
+border-color: #000000;
+font-family: "Courier New", Courier, monospace;
+font-size: 150%;
+}
+.msg_head {
+padding: 5px 10px;
+cursor: pointer;
+background-color: #000000;
+margin: 0px;
+border-style: none;
+border-left-width: 1px;
+border-bottom-width: 0px;
+border-top-width: 0px;
+border-right-width: 0px;
+border-color: #000000;
+font-family: "Courier New", Courier, monospace;
+font-size: 1vw;
+text-align: left;
+}
+.msg_body {
+padding: 5px 10px 15px;
+background-color: #000000;
+border-style: none;
+border-left-width: 1px;
+border-bottom-width: 0px;
+border-top-width: 0px;
+border-right-width: 0px;
+border-color: #000000;
+font-family: "Courier New", Courier, monospace;
+font-size: 1vw;
+text-align: left;
+}
+b.level1 {
+color: #00FF00;
+}
+b.level2 {
+color: #00EE00;
+}
+b.level3 {
+color: #00DD00;
+}
+b.hidden {
+color: #000000;
+}
+td {
+width: 50%;
+vertical-align: top;
+padding: 1%;
+}
+p.profile {
+font-size: 1vw;
+color: #00FF00;
+}
+a {
+   outline: 0;
+}
+a:link {
+color: #00FF00;
+text-decoration: none;
+}
+a:visited {
+color: #00FF00;
+text-decoration: none;
+}
+a:hover {
+color: #00FF00;
+text-decoration: bold;
+}
+a:active {
+color: #00FF00;
+text-decoration: none;
+}
+address { 
+display: block;
+font-style: none;
+}
+p.blurb {
+font-size: 1vw;
+color: #00FF00;
+text-align: justify;
+}
+
+input[type=text], select {
+    width: 100%;
+height: 3vw;
+    padding: 1vw 2vw;
+    margin: 1vw 0;
+    display: inline-block;
+    border: 1px solid grey;
+    border-radius: 0.5vw;
+    box-sizing: border-box;
+font-size: 1vw;
+
+}
+input[type=email], select {
+    width: 100%;
+height: 3vw;
+    padding: 1vw 2vw;
+    margin: 1vw 0;
+    display: inline-block;
+    border: 1px solid grey;
+    border-radius: 0.5vw;
+    box-sizing: border-box;
+font-size: 1vw;
+
+}
+
+input[type=submit] {
+    width: 100%;
+    background-color: #00BB00;
+    color: white;
+    padding: 1.5vw 2vw;
+    margin: 1vw 0;
+    border: none;
+    border-radius: 0.5vw;
+    cursor: pointer;
+font-size: 1vw;
+font-family: "Courier New", Courier, monospace;
+}
+
+input[type=submit]:hover {
+    background-color: #00AA00;
+}
+
+div.form {
+    border-radius: 0.5vw;
+    background-color: #00CC00;
+    padding: 2vw;
+    color: #000000;
+}
+.Fixed
+{
+    position: fixed;
+    z-index: 998;
+    top: 1px;
+}
+.list
+{
+    position: static;
+    z-index: 997;
+    top: 20px;
+}
+pre.title {
+    display: block;
+    font-family: monospace;
+    white-space: pre;
+    margin: 1em 0;
+        position: relative;
+    z-index: 999;
+
+    -moz-box-shadow: 15px 30px 30px #000;
+-webkit-box-shadow: 15px 30px 30px #000;
+box-shadow: 15px 30px 30px #000;
+}
+            </style>
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=RyowqMMKa9">
+<link rel="icon" type="image/png" href="/favicon-32x32.png?v=RyowqMMKa9" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicon-16x16.png?v=RyowqMMKa9" sizes="16x16">
+<link rel="manifest" href="/manifest.json?v=RyowqMMKa9">
+<link rel="mask-icon" href="/safari-pinned-tab.svg?v=RyowqMMKa9" color="#888899">
+<link rel="shortcut icon" href="/favicon.ico?v=RyowqMMKa9">
+<meta name="theme-color" content="#ccccdd">
+
+    </head>
+    <body>
+<link rel="icon" type="image/svg+xml" href="Monogram.svg">
+        <object type="image/svg+xml" data="left-corner.svg" class="leftcorner"></object>
+        <object type="image/svg+xml" data="right-corner.svg" class="rightcorner"></object>
+        <object type="image/svg+xml" data="Monogram.svg" class="monogram"></object>
+<div class="msg_list">
+<font color="00FF00" style="font-size: 1vw; font-family: "Courier New", Courier, monospace;">
+<pre class="msg_head title"><a href="#content">
+
+
+                                 `                                                                                                                     
+
+                          `                                                                 `                                        `                      
+                        ``                                                                  `                                        `                        
+                       ``              ``             ``                                    ``                                      ``                          
+                      ``               ``            ```                                    ```           ``                       ``                           
+                      ``            .. ``      ``   ```                                      ```                                  ``                            
+                     ```           `.. ````` ````   ```                                      ````-.``````                       ``                              
+              ```    ```       ``  `..``.+o/.```   ````...``                  ``.........``   ```//...```                     ```     ``         ````   `````   
+          ```````.`  .:-```  `-:.` `..-:-oso/:`````-::----:-.``   `.``....` `.....``..----.``````-::os:``                    ```   `````      `` ``..````.--.   
+         ```    `.----::-````-/-````---..oso.--.``::-`````...--```.--..``````---`.-+ossssso/-`````-:ss+..````      ```     ```   ``````     ```  `--.` ``...`   
+        .-````.:osssssso+.`:/:-````./+:..oso-/ooo++:.```.:/+ooo+:..--.:/..:++/---osssoooossss+-.``-:sso...-.``````````  ```````````````  ````   `.-.`  ``      
+       `:-```:oss+/::+oss-.+so.``..:ss/.-osssoo+osso:..-osso+ossso///:ss+osooo:/ssso:-----:+o/..``-:sso-:/+/-.`.-......``.`````...--.```````.::-.-`` ```       `
+       `--``:sso:..```.----:ss+....oss/--oss/::--/sso--oss/-:///oss+//ssso/----+sss:---::::::---..-/sssosoosso:--.`-:+oo/:-.-::::::--.-/:```:ss+-.```````      `
+       ```..+ss/-..``````.-:+ss:.-/ss/---oss---..-oss:/ss+-:::--:sso//oss--....+sso:--/ssssssssooo+/ssso:--/oss::./sssoossso+///+ooooooo/../+sss//--...````   ``
+         ``.oss.`````````..--oso-:ss+-...oso....--oss:/ss/.--..--sss::oss--...-/sss:---/++++++oooo+/oss:...-+ss/:/sso:--/+osso:-oss++oos+-:osssssss+--.````````
+      ``   `oss:````````.....:ss++ss-...-oss-...-:sss::ss+--...-:sso--oss--....-osso/::-----::----:/oss:....:ss+:oss/-..://sss//sss:---/+---/sss//::--:.````.--
+           `:sss/-...-/o+.`...+ssss/.``..osso/:::+ss+--+ss+/---:oss/--oss-.....--ossssooo+ooss:----+oss/...-:sso/+ss+--:+o+oss/:+sss+/-:+/--:sss:------.```.-..
+            `-osssooossso.````.osso..```.+s++osssso:...-/osssossso:..-+ss-......-/+osssssssss+-...-:+ss+---:/sss+/sso-:/++:+ss+:::+ossso++/::sss:...-:-.```-:.``
+             ``-/+ooo+/-.`````.+ss:.`````.--.-:::-.```....-/++/:-....--::--..-..::/:::////+/:.......+sso::::-+ss+:+ss+/++::oss+/:::/++ssso+/:oss/...--.```.-:-``
+              ````..``````..``-ss+-```````.``.-.``````.--.`.--...```--```.---.`-:::.............```./+++//:-.:oo+//+sssso+osso:-oo///:+sss/::+sso.--:.````.---.
+       `     `````````````.```/o+...``````````--```....-.```...````..````.--.``.:-.......:::::---.``/++/:.`..`.:+o+::/oosoo+//:./ssssosss+////sss+/+:.```..`.-
+            `.`````  ```...``````.......-.````-:.`..```.`````..``````````.--```.-.---.--/+++oo++++-`/o+/.```...:os+-..:/+/:--:-..-/+oo+/:-//:/+ossss:````.```
+            `.`   ``   `.-.`` ```..``..-::.  ``--.`````.`````..```````````.-````..:/:---::::::://:``/o+:````...-ss/-..-+++/-..``.:/:---..-/+/::----.```````    
+                        ...`` ````  `````..` ```..`..```   `.--.`       ``..``````-//:.........`````:+/-`````.`.os:...:/+++:-..-:::----.``-----...```````       
+                        ````  ``   ..` ```..`  `````.``    `.--`         ``..  ````-//:::::/::``````.//-`````-..:+/...--/++//+//:.`.--.````````....``           
+                          ``  `````.-.```````  ``.`.``````  ```````       `..`````..-://+++/:-`  ````/+-...`.:.``/::.`.-/+/::::.```````..```````                
+                              `.`` `.`         `.-`    `.`  ``             ```````--.--::::-`    `` `:/-.```.-```.--.```.----.....```````                       
+                               ```  `  ````.`  `-.`     ``  ``                ````.........`     `` `---`  ``  ```--`   ```...````` `                           
+                 `              ``  ...`` ``.  `...``        `                   `````` ```````.``` `--.         .-.    ``````                                  
+                 ``    `        `   ```    ```  `   `        `                           ```......  .:-`         ..`      ```                                   
+                                     `      ``      `                              ```` `           `-.          ``                                             
+                               `            ``       ``                             ```    ``       `..                                                         
+                               `            `                                           `````       ``.       
+
+
+
+
+
+
+</a>
+</pre>
+<div class="msg_body">
+<table>
+<tr>
+<td>
+<div class="Fixed">
+<iframe src="default.htm" name="iframe_a" frameborder="0" scrolling="no" style="position: inherit; height: 150%; width:45%; border: none" ;></iframe>
+</div>
+
+<p class="blurb"><b class="hidden">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx<br><br>
+<td>
+    <pre class="msg_head"><a href="abstract.htm" target="iframe_a">
+    _   ___ ___ _____ ___    _   ___ _____ 
+   /_\ | _ ) __|_   _| _ \  /_\ / __|_   _|
+  / _ \| _ \__ \ | | |   / / _ \ (__  | |  
+ /_/ \_\___/___/ |_| |_|_\/_/ \_\___| |_| 
+    </a></pre>
+        <div class="msg_body">
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. In rhoncus, lorem id dictum convallis, est sapien pharetra velit, et pretium orci mauris at massa. Nunc pharetra scelerisque lacinia. Integer eu augue pellentesque, consequat magna in, varius magna. Nunc malesuada nisi ac dolor imperdiet, in vehicula lectus malesuada. Nullam vitae orci massa. Praesent fringilla ligula est, nec eleifend nunc vehicula vitae. Curabitur et mi ut diam feugiat congue. Mauris suscipit, ex in feugiat malesuada, lectus nulla volutpat leo, et varius nisi nisi sed enim. Nam iaculis risus eu viverra mollis.
+<br><br>
+Nam hendrerit pretium ipsum. Cras feugiat tellus a mauris ultricies, nec auctor magna ultricies. Pellentesque ornare pulvinar est, in dapibus nisi placerat non. Nullam convallis ante quis maximus consectetur. Pellentesque at nunc nec nisi viverra ultricies. Nulla ultricies a eros nec fermentum. Nulla facilisi. Ut enim orci, mattis non dolor eget, tristique gravida sem. Quisque libero quam, pharetra a lacinia sit amet, ultrices ac justo. In hac habitasse platea dictumst. Proin sit amet nulla et lectus fermentum rhoncus. Morbi quis porttitor justo. Donec libero augue, cursus nec lacinia sed, suscipit eu felis. Sed nibh enim, congue in enim ut, ornare semper nibh. Quisque consequat id ante eu gravida. Etiam eu justo rutrum, luctus turpis in, eleifend augue.
+<br><br>
+Aenean ac dolor ac quam cursus sodales. Donec est augue, ornare vitae nulla non, auctor luctus justo. Vivamus vitae aliquet enim. Cras a congue quam. Curabitur id erat vel enim congue efficitur in non felis. Sed interdum odio id risus feugiat, quis consequat odio tristique. Phasellus rhoncus purus sit amet rhoncus accumsan. Cras interdum vestibulum libero vel placerat. Nam posuere turpis et bibendum rhoncus. Quisque sodales sapien vel diam ornare rutrum.
+<br><br>
+Donec ex sapien, placerat vel dapibus ut, fringilla sagittis sem. Praesent eu euismod dui, ut volutpat justo. Ut et nibh enim. Nulla et sapien turpis. Maecenas bibendum libero ut felis feugiat, id luctus sapien condimentum. Curabitur sed purus pretium, sagittis lacus imperdiet, aliquam quam. Nam sed nisl finibus, eleifend massa in, mattis mauris. Sed efficitur felis justo, sit amet efficitur nisi sagittis mattis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Maecenas ac erat quis massa suscipit luctus. In facilisis massa non turpis mattis feugiat. Suspendisse potenti. Fusce blandit urna vitae ex bibendum aliquet. Curabitur vitae purus laoreet, congue tortor sed, ultricies lorem. Vivamus rhoncus, erat consectetur tempor tempor, magna sapien maximus enim, at ornare metus arcu sed est.
+<br><br>
+Aliquam dignissim elit quam, sed malesuada neque iaculis id. Sed dignissim, mauris et imperdiet bibendum, urna tellus varius arcu, ut pulvinar dui odio vitae nisi. Curabitur id turpis et ligula pretium dapibus vitae nec ipsum. Vivamus volutpat bibendum mauris, id lobortis odio dapibus quis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Praesent diam neque, feugiat id sollicitudin vitae, dignissim in dui. Pellentesque egestas porta purus, luctus facilisis nibh tristique porta. Cras fermentum, ex eget pellentesque ultricies, metus lectus aliquet lorem, nec mattis tortor arcu et sapien. Pellentesque egestas sapien rhoncus lacus laoreet lacinia. Integer pharetra velit lectus, nec efficitur ex egestas non. Nulla blandit vel justo ac semper. Vivamus malesuada nulla sit amet quam scelerisque aliquet non sed arcu. 
+        </div>
+    <pre class="msg_head"><a href="default.htm" target="iframe_a">
+  ___ _  _ _____ ___  ___  ___  _   _  ___ _____ ___ ___  _  _ 
+ |_ _| \| |_   _| _ \/ _ \|   \| | | |/ __|_   _|_ _/ _ \| \| |
+  | || .` | | | |   / (_) | |) | |_| | (__  | |  | | (_) | .` |
+ |___|_|\_| |_| |_|_\\___/|___/ \___/ \___| |_| |___\___/|_|\_|
+    </a></pre>
+        <div class="msg_body">
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. In rhoncus, lorem id dictum convallis, est sapien pharetra velit, et pretium orci mauris at massa. Nunc pharetra scelerisque lacinia. Integer eu augue pellentesque, consequat magna in, varius magna. Nunc malesuada nisi ac dolor imperdiet, in vehicula lectus malesuada. Nullam vitae orci massa. Praesent fringilla ligula est, nec eleifend nunc vehicula vitae. Curabitur et mi ut diam feugiat congue. Mauris suscipit, ex in feugiat malesuada, lectus nulla volutpat leo, et varius nisi nisi sed enim. Nam iaculis risus eu viverra mollis.
+<br><br>
+Nam hendrerit pretium ipsum. Cras feugiat tellus a mauris ultricies, nec auctor magna ultricies. Pellentesque ornare pulvinar est, in dapibus nisi placerat non. Nullam convallis ante quis maximus consectetur. Pellentesque at nunc nec nisi viverra ultricies. Nulla ultricies a eros nec fermentum. Nulla facilisi. Ut enim orci, mattis non dolor eget, tristique gravida sem. Quisque libero quam, pharetra a lacinia sit amet, ultrices ac justo. In hac habitasse platea dictumst. Proin sit amet nulla et lectus fermentum rhoncus. Morbi quis porttitor justo. Donec libero augue, cursus nec lacinia sed, suscipit eu felis. Sed nibh enim, congue in enim ut, ornare semper nibh. Quisque consequat id ante eu gravida. Etiam eu justo rutrum, luctus turpis in, eleifend augue.
+<br><br>
+Aenean ac dolor ac quam cursus sodales. Donec est augue, ornare vitae nulla non, auctor luctus justo. Vivamus vitae aliquet enim. Cras a congue quam. Curabitur id erat vel enim congue efficitur in non felis. Sed interdum odio id risus feugiat, quis consequat odio tristique. Phasellus rhoncus purus sit amet rhoncus accumsan. Cras interdum vestibulum libero vel placerat. Nam posuere turpis et bibendum rhoncus. Quisque sodales sapien vel diam ornare rutrum.
+<br><br>
+Donec ex sapien, placerat vel dapibus ut, fringilla sagittis sem. Praesent eu euismod dui, ut volutpat justo. Ut et nibh enim. Nulla et sapien turpis. Maecenas bibendum libero ut felis feugiat, id luctus sapien condimentum. Curabitur sed purus pretium, sagittis lacus imperdiet, aliquam quam. Nam sed nisl finibus, eleifend massa in, mattis mauris. Sed efficitur felis justo, sit amet efficitur nisi sagittis mattis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Maecenas ac erat quis massa suscipit luctus. In facilisis massa non turpis mattis feugiat. Suspendisse potenti. Fusce blandit urna vitae ex bibendum aliquet. Curabitur vitae purus laoreet, congue tortor sed, ultricies lorem. Vivamus rhoncus, erat consectetur tempor tempor, magna sapien maximus enim, at ornare metus arcu sed est.
+<br><br>
+Aliquam dignissim elit quam, sed malesuada neque iaculis id. Sed dignissim, mauris et imperdiet bibendum, urna tellus varius arcu, ut pulvinar dui odio vitae nisi. Curabitur id turpis et ligula pretium dapibus vitae nec ipsum. Vivamus volutpat bibendum mauris, id lobortis odio dapibus quis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Praesent diam neque, feugiat id sollicitudin vitae, dignissim in dui. Pellentesque egestas porta purus, luctus facilisis nibh tristique porta. Cras fermentum, ex eget pellentesque ultricies, metus lectus aliquet lorem, nec mattis tortor arcu et sapien. Pellentesque egestas sapien rhoncus lacus laoreet lacinia. Integer pharetra velit lectus, nec efficitur ex egestas non. Nulla blandit vel justo ac semper. Vivamus malesuada nulla sit amet quam scelerisque aliquet non sed arcu. 
+        </div>
+    <pre class="msg_head"><a href="default.htm" target="iframe_a">
+  __  __ ___ _____ _  _  ___  ___  ___ 
+ |  \/  | __|_   _| || |/ _ \|   \/ __|
+ | |\/| | _|  | | | __ | (_) | |) \__ \
+ |_|  |_|___| |_| |_||_|\___/|___/|___/
+    </a></pre>
+        <div class="msg_body">
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. In rhoncus, lorem id dictum convallis, est sapien pharetra velit, et pretium orci mauris at massa. Nunc pharetra scelerisque lacinia. Integer eu augue pellentesque, consequat magna in, varius magna. Nunc malesuada nisi ac dolor imperdiet, in vehicula lectus malesuada. Nullam vitae orci massa. Praesent fringilla ligula est, nec eleifend nunc vehicula vitae. Curabitur et mi ut diam feugiat congue. Mauris suscipit, ex in feugiat malesuada, lectus nulla volutpat leo, et varius nisi nisi sed enim. Nam iaculis risus eu viverra mollis.
+<br><br>
+Nam hendrerit pretium ipsum. Cras feugiat tellus a mauris ultricies, nec auctor magna ultricies. Pellentesque ornare pulvinar est, in dapibus nisi placerat non. Nullam convallis ante quis maximus consectetur. Pellentesque at nunc nec nisi viverra ultricies. Nulla ultricies a eros nec fermentum. Nulla facilisi. Ut enim orci, mattis non dolor eget, tristique gravida sem. Quisque libero quam, pharetra a lacinia sit amet, ultrices ac justo. In hac habitasse platea dictumst. Proin sit amet nulla et lectus fermentum rhoncus. Morbi quis porttitor justo. Donec libero augue, cursus nec lacinia sed, suscipit eu felis. Sed nibh enim, congue in enim ut, ornare semper nibh. Quisque consequat id ante eu gravida. Etiam eu justo rutrum, luctus turpis in, eleifend augue.
+<br><br>
+Aenean ac dolor ac quam cursus sodales. Donec est augue, ornare vitae nulla non, auctor luctus justo. Vivamus vitae aliquet enim. Cras a congue quam. Curabitur id erat vel enim congue efficitur in non felis. Sed interdum odio id risus feugiat, quis consequat odio tristique. Phasellus rhoncus purus sit amet rhoncus accumsan. Cras interdum vestibulum libero vel placerat. Nam posuere turpis et bibendum rhoncus. Quisque sodales sapien vel diam ornare rutrum.
+<br><br>
+Donec ex sapien, placerat vel dapibus ut, fringilla sagittis sem. Praesent eu euismod dui, ut volutpat justo. Ut et nibh enim. Nulla et sapien turpis. Maecenas bibendum libero ut felis feugiat, id luctus sapien condimentum. Curabitur sed purus pretium, sagittis lacus imperdiet, aliquam quam. Nam sed nisl finibus, eleifend massa in, mattis mauris. Sed efficitur felis justo, sit amet efficitur nisi sagittis mattis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Maecenas ac erat quis massa suscipit luctus. In facilisis massa non turpis mattis feugiat. Suspendisse potenti. Fusce blandit urna vitae ex bibendum aliquet. Curabitur vitae purus laoreet, congue tortor sed, ultricies lorem. Vivamus rhoncus, erat consectetur tempor tempor, magna sapien maximus enim, at ornare metus arcu sed est.
+<br><br>
+Aliquam dignissim elit quam, sed malesuada neque iaculis id. Sed dignissim, mauris et imperdiet bibendum, urna tellus varius arcu, ut pulvinar dui odio vitae nisi. Curabitur id turpis et ligula pretium dapibus vitae nec ipsum. Vivamus volutpat bibendum mauris, id lobortis odio dapibus quis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Praesent diam neque, feugiat id sollicitudin vitae, dignissim in dui. Pellentesque egestas porta purus, luctus facilisis nibh tristique porta. Cras fermentum, ex eget pellentesque ultricies, metus lectus aliquet lorem, nec mattis tortor arcu et sapien. Pellentesque egestas sapien rhoncus lacus laoreet lacinia. Integer pharetra velit lectus, nec efficitur ex egestas non. Nulla blandit vel justo ac semper. Vivamus malesuada nulla sit amet quam scelerisque aliquet non sed arcu. 
+        </div>
+    <pre class="msg_head"><a href="default.htm" target="iframe_a">
+  ___ ___ ___ _   _ _  _____ ___ 
+ | _ \ __/ __| | | | ||_   _/ __|
+ |   / _|\__ \ |_| | |__| | \__ \
+ |_|_\___|___/\___/|____|_| |___/
+    </a></a></pre>
+        <div class="msg_body">
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. In rhoncus, lorem id dictum convallis, est sapien pharetra velit, et pretium orci mauris at massa. Nunc pharetra scelerisque lacinia. Integer eu augue pellentesque, consequat magna in, varius magna. Nunc malesuada nisi ac dolor imperdiet, in vehicula lectus malesuada. Nullam vitae orci massa. Praesent fringilla ligula est, nec eleifend nunc vehicula vitae. Curabitur et mi ut diam feugiat congue. Mauris suscipit, ex in feugiat malesuada, lectus nulla volutpat leo, et varius nisi nisi sed enim. Nam iaculis risus eu viverra mollis.
+<br><br>
+Nam hendrerit pretium ipsum. Cras feugiat tellus a mauris ultricies, nec auctor magna ultricies. Pellentesque ornare pulvinar est, in dapibus nisi placerat non. Nullam convallis ante quis maximus consectetur. Pellentesque at nunc nec nisi viverra ultricies. Nulla ultricies a eros nec fermentum. Nulla facilisi. Ut enim orci, mattis non dolor eget, tristique gravida sem. Quisque libero quam, pharetra a lacinia sit amet, ultrices ac justo. In hac habitasse platea dictumst. Proin sit amet nulla et lectus fermentum rhoncus. Morbi quis porttitor justo. Donec libero augue, cursus nec lacinia sed, suscipit eu felis. Sed nibh enim, congue in enim ut, ornare semper nibh. Quisque consequat id ante eu gravida. Etiam eu justo rutrum, luctus turpis in, eleifend augue.
+<br><br>
+Aenean ac dolor ac quam cursus sodales. Donec est augue, ornare vitae nulla non, auctor luctus justo. Vivamus vitae aliquet enim. Cras a congue quam. Curabitur id erat vel enim congue efficitur in non felis. Sed interdum odio id risus feugiat, quis consequat odio tristique. Phasellus rhoncus purus sit amet rhoncus accumsan. Cras interdum vestibulum libero vel placerat. Nam posuere turpis et bibendum rhoncus. Quisque sodales sapien vel diam ornare rutrum.
+<br><br>
+Donec ex sapien, placerat vel dapibus ut, fringilla sagittis sem. Praesent eu euismod dui, ut volutpat justo. Ut et nibh enim. Nulla et sapien turpis. Maecenas bibendum libero ut felis feugiat, id luctus sapien condimentum. Curabitur sed purus pretium, sagittis lacus imperdiet, aliquam quam. Nam sed nisl finibus, eleifend massa in, mattis mauris. Sed efficitur felis justo, sit amet efficitur nisi sagittis mattis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Maecenas ac erat quis massa suscipit luctus. In facilisis massa non turpis mattis feugiat. Suspendisse potenti. Fusce blandit urna vitae ex bibendum aliquet. Curabitur vitae purus laoreet, congue tortor sed, ultricies lorem. Vivamus rhoncus, erat consectetur tempor tempor, magna sapien maximus enim, at ornare metus arcu sed est.
+<br><br>
+Aliquam dignissim elit quam, sed malesuada neque iaculis id. Sed dignissim, mauris et imperdiet bibendum, urna tellus varius arcu, ut pulvinar dui odio vitae nisi. Curabitur id turpis et ligula pretium dapibus vitae nec ipsum. Vivamus volutpat bibendum mauris, id lobortis odio dapibus quis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Praesent diam neque, feugiat id sollicitudin vitae, dignissim in dui. Pellentesque egestas porta purus, luctus facilisis nibh tristique porta. Cras fermentum, ex eget pellentesque ultricies, metus lectus aliquet lorem, nec mattis tortor arcu et sapien. Pellentesque egestas sapien rhoncus lacus laoreet lacinia. Integer pharetra velit lectus, nec efficitur ex egestas non. Nulla blandit vel justo ac semper. Vivamus malesuada nulla sit amet quam scelerisque aliquet non sed arcu. 
+        </div>
+    <pre class="msg_head"><a href="default.htm" target="iframe_a">
+  ___ ___ ___  ___ _   _ ___ ___ ___ ___  _  _ 
+ |   \_ _/ __|/ __| | | / __/ __|_ _/ _ \| \| |
+ | |) | |\__ \ (__| |_| \__ \__ \| | (_) | .` |
+ |___/___|___/\___|\___/|___/___/___\___/|_|\_|
+    </a></pre>
+        <div class="msg_body">
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. In rhoncus, lorem id dictum convallis, est sapien pharetra velit, et pretium orci mauris at massa. Nunc pharetra scelerisque lacinia. Integer eu augue pellentesque, consequat magna in, varius magna. Nunc malesuada nisi ac dolor imperdiet, in vehicula lectus malesuada. Nullam vitae orci massa. Praesent fringilla ligula est, nec eleifend nunc vehicula vitae. Curabitur et mi ut diam feugiat congue. Mauris suscipit, ex in feugiat malesuada, lectus nulla volutpat leo, et varius nisi nisi sed enim. Nam iaculis risus eu viverra mollis.
+<br><br>
+Nam hendrerit pretium ipsum. Cras feugiat tellus a mauris ultricies, nec auctor magna ultricies. Pellentesque ornare pulvinar est, in dapibus nisi placerat non. Nullam convallis ante quis maximus consectetur. Pellentesque at nunc nec nisi viverra ultricies. Nulla ultricies a eros nec fermentum. Nulla facilisi. Ut enim orci, mattis non dolor eget, tristique gravida sem. Quisque libero quam, pharetra a lacinia sit amet, ultrices ac justo. In hac habitasse platea dictumst. Proin sit amet nulla et lectus fermentum rhoncus. Morbi quis porttitor justo. Donec libero augue, cursus nec lacinia sed, suscipit eu felis. Sed nibh enim, congue in enim ut, ornare semper nibh. Quisque consequat id ante eu gravida. Etiam eu justo rutrum, luctus turpis in, eleifend augue.
+<br><br>
+Aenean ac dolor ac quam cursus sodales. Donec est augue, ornare vitae nulla non, auctor luctus justo. Vivamus vitae aliquet enim. Cras a congue quam. Curabitur id erat vel enim congue efficitur in non felis. Sed interdum odio id risus feugiat, quis consequat odio tristique. Phasellus rhoncus purus sit amet rhoncus accumsan. Cras interdum vestibulum libero vel placerat. Nam posuere turpis et bibendum rhoncus. Quisque sodales sapien vel diam ornare rutrum.
+<br><br>
+Donec ex sapien, placerat vel dapibus ut, fringilla sagittis sem. Praesent eu euismod dui, ut volutpat justo. Ut et nibh enim. Nulla et sapien turpis. Maecenas bibendum libero ut felis feugiat, id luctus sapien condimentum. Curabitur sed purus pretium, sagittis lacus imperdiet, aliquam quam. Nam sed nisl finibus, eleifend massa in, mattis mauris. Sed efficitur felis justo, sit amet efficitur nisi sagittis mattis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Maecenas ac erat quis massa suscipit luctus. In facilisis massa non turpis mattis feugiat. Suspendisse potenti. Fusce blandit urna vitae ex bibendum aliquet. Curabitur vitae purus laoreet, congue tortor sed, ultricies lorem. Vivamus rhoncus, erat consectetur tempor tempor, magna sapien maximus enim, at ornare metus arcu sed est.
+<br><br>
+Aliquam dignissim elit quam, sed malesuada neque iaculis id. Sed dignissim, mauris et imperdiet bibendum, urna tellus varius arcu, ut pulvinar dui odio vitae nisi. Curabitur id turpis et ligula pretium dapibus vitae nec ipsum. Vivamus volutpat bibendum mauris, id lobortis odio dapibus quis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Praesent diam neque, feugiat id sollicitudin vitae, dignissim in dui. Pellentesque egestas porta purus, luctus facilisis nibh tristique porta. Cras fermentum, ex eget pellentesque ultricies, metus lectus aliquet lorem, nec mattis tortor arcu et sapien. Pellentesque egestas sapien rhoncus lacus laoreet lacinia. Integer pharetra velit lectus, nec efficitur ex egestas non. Nulla blandit vel justo ac semper. Vivamus malesuada nulla sit amet quam scelerisque aliquet non sed arcu. 
+        </div>         
+    <pre class="msg_head"><a href="default.htm" target="iframe_a">
+    _   ___ _  ___  _  _____      ___    ___ ___   ___ ___ __  __ ___ _  _ _____ ___ 
+   /_\ / __| |/ / \| |/ _ \ \    / / |  | __|   \ / __| __|  \/  | __| \| |_   _/ __|
+  / _ \ (__| ' <| .` | (_) \ \/\/ /| |__| _|| |) | (_ | _|| |\/| | _|| .` | | | \__ \
+ /_/ \_\___|_|\_\_|\_|\___/ \_/\_/ |____|___|___/ \___|___|_|  |_|___|_|\_| |_| |___/
+    </a></pre>
+        <div class="msg_body">
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. In rhoncus, lorem id dictum convallis, est sapien pharetra velit, et pretium orci mauris at massa. Nunc pharetra scelerisque lacinia. Integer eu augue pellentesque, consequat magna in, varius magna. Nunc malesuada nisi ac dolor imperdiet, in vehicula lectus malesuada. Nullam vitae orci massa. Praesent fringilla ligula est, nec eleifend nunc vehicula vitae. Curabitur et mi ut diam feugiat congue. Mauris suscipit, ex in feugiat malesuada, lectus nulla volutpat leo, et varius nisi nisi sed enim. Nam iaculis risus eu viverra mollis.
+<br><br>
+Nam hendrerit pretium ipsum. Cras feugiat tellus a mauris ultricies, nec auctor magna ultricies. Pellentesque ornare pulvinar est, in dapibus nisi placerat non. Nullam convallis ante quis maximus consectetur. Pellentesque at nunc nec nisi viverra ultricies. Nulla ultricies a eros nec fermentum. Nulla facilisi. Ut enim orci, mattis non dolor eget, tristique gravida sem. Quisque libero quam, pharetra a lacinia sit amet, ultrices ac justo. In hac habitasse platea dictumst. Proin sit amet nulla et lectus fermentum rhoncus. Morbi quis porttitor justo. Donec libero augue, cursus nec lacinia sed, suscipit eu felis. Sed nibh enim, congue in enim ut, ornare semper nibh. Quisque consequat id ante eu gravida. Etiam eu justo rutrum, luctus turpis in, eleifend augue.
+<br><br>
+Aenean ac dolor ac quam cursus sodales. Donec est augue, ornare vitae nulla non, auctor luctus justo. Vivamus vitae aliquet enim. Cras a congue quam. Curabitur id erat vel enim congue efficitur in non felis. Sed interdum odio id risus feugiat, quis consequat odio tristique. Phasellus rhoncus purus sit amet rhoncus accumsan. Cras interdum vestibulum libero vel placerat. Nam posuere turpis et bibendum rhoncus. Quisque sodales sapien vel diam ornare rutrum.
+<br><br>
+Donec ex sapien, placerat vel dapibus ut, fringilla sagittis sem. Praesent eu euismod dui, ut volutpat justo. Ut et nibh enim. Nulla et sapien turpis. Maecenas bibendum libero ut felis feugiat, id luctus sapien condimentum. Curabitur sed purus pretium, sagittis lacus imperdiet, aliquam quam. Nam sed nisl finibus, eleifend massa in, mattis mauris. Sed efficitur felis justo, sit amet efficitur nisi sagittis mattis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Maecenas ac erat quis massa suscipit luctus. In facilisis massa non turpis mattis feugiat. Suspendisse potenti. Fusce blandit urna vitae ex bibendum aliquet. Curabitur vitae purus laoreet, congue tortor sed, ultricies lorem. Vivamus rhoncus, erat consectetur tempor tempor, magna sapien maximus enim, at ornare metus arcu sed est.
+<br><br>
+Aliquam dignissim elit quam, sed malesuada neque iaculis id. Sed dignissim, mauris et imperdiet bibendum, urna tellus varius arcu, ut pulvinar dui odio vitae nisi. Curabitur id turpis et ligula pretium dapibus vitae nec ipsum. Vivamus volutpat bibendum mauris, id lobortis odio dapibus quis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Praesent diam neque, feugiat id sollicitudin vitae, dignissim in dui. Pellentesque egestas porta purus, luctus facilisis nibh tristique porta. Cras fermentum, ex eget pellentesque ultricies, metus lectus aliquet lorem, nec mattis tortor arcu et sapien. Pellentesque egestas sapien rhoncus lacus laoreet lacinia. Integer pharetra velit lectus, nec efficitur ex egestas non. Nulla blandit vel justo ac semper. Vivamus malesuada nulla sit amet quam scelerisque aliquet non sed arcu. 
+        </div>
+    <pre class="msg_head"><a href="default.htm" target="iframe_a">
+  _    ___ _____ ___ ___    _ _____ _   _ ___ ___    ___ ___ _____ ___ ___  
+ | |  |_ _|_   _| __| _ \  /_\_   _| | | | _ \ __|  / __|_ _|_   _| __|   \ 
+ | |__ | |  | | | _||   / / _ \| | | |_| |   / _|  | (__ | |  | | | _|| |) |
+ |____|___| |_| |___|_|_\/_/ \_\_|  \___/|_|_\___|  \___|___| |_| |___|___/ 
+    </a></pre>
+        <div class="msg_body">
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. In rhoncus, lorem id dictum convallis, est sapien pharetra velit, et pretium orci mauris at massa. Nunc pharetra scelerisque lacinia. Integer eu augue pellentesque, consequat magna in, varius magna. Nunc malesuada nisi ac dolor imperdiet, in vehicula lectus malesuada. Nullam vitae orci massa. Praesent fringilla ligula est, nec eleifend nunc vehicula vitae. Curabitur et mi ut diam feugiat congue. Mauris suscipit, ex in feugiat malesuada, lectus nulla volutpat leo, et varius nisi nisi sed enim. Nam iaculis risus eu viverra mollis.
+<br><br>
+Nam hendrerit pretium ipsum. Cras feugiat tellus a mauris ultricies, nec auctor magna ultricies. Pellentesque ornare pulvinar est, in dapibus nisi placerat non. Nullam convallis ante quis maximus consectetur. Pellentesque at nunc nec nisi viverra ultricies. Nulla ultricies a eros nec fermentum. Nulla facilisi. Ut enim orci, mattis non dolor eget, tristique gravida sem. Quisque libero quam, pharetra a lacinia sit amet, ultrices ac justo. In hac habitasse platea dictumst. Proin sit amet nulla et lectus fermentum rhoncus. Morbi quis porttitor justo. Donec libero augue, cursus nec lacinia sed, suscipit eu felis. Sed nibh enim, congue in enim ut, ornare semper nibh. Quisque consequat id ante eu gravida. Etiam eu justo rutrum, luctus turpis in, eleifend augue.
+<br><br>
+Aenean ac dolor ac quam cursus sodales. Donec est augue, ornare vitae nulla non, auctor luctus justo. Vivamus vitae aliquet enim. Cras a congue quam. Curabitur id erat vel enim congue efficitur in non felis. Sed interdum odio id risus feugiat, quis consequat odio tristique. Phasellus rhoncus purus sit amet rhoncus accumsan. Cras interdum vestibulum libero vel placerat. Nam posuere turpis et bibendum rhoncus. Quisque sodales sapien vel diam ornare rutrum.
+<br><br>
+Donec ex sapien, placerat vel dapibus ut, fringilla sagittis sem. Praesent eu euismod dui, ut volutpat justo. Ut et nibh enim. Nulla et sapien turpis. Maecenas bibendum libero ut felis feugiat, id luctus sapien condimentum. Curabitur sed purus pretium, sagittis lacus imperdiet, aliquam quam. Nam sed nisl finibus, eleifend massa in, mattis mauris. Sed efficitur felis justo, sit amet efficitur nisi sagittis mattis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Maecenas ac erat quis massa suscipit luctus. In facilisis massa non turpis mattis feugiat. Suspendisse potenti. Fusce blandit urna vitae ex bibendum aliquet. Curabitur vitae purus laoreet, congue tortor sed, ultricies lorem. Vivamus rhoncus, erat consectetur tempor tempor, magna sapien maximus enim, at ornare metus arcu sed est.
+<br><br>
+Aliquam dignissim elit quam, sed malesuada neque iaculis id. Sed dignissim, mauris et imperdiet bibendum, urna tellus varius arcu, ut pulvinar dui odio vitae nisi. Curabitur id turpis et ligula pretium dapibus vitae nec ipsum. Vivamus volutpat bibendum mauris, id lobortis odio dapibus quis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Praesent diam neque, feugiat id sollicitudin vitae, dignissim in dui. Pellentesque egestas porta purus, luctus facilisis nibh tristique porta. Cras fermentum, ex eget pellentesque ultricies, metus lectus aliquet lorem, nec mattis tortor arcu et sapien. Pellentesque egestas sapien rhoncus lacus laoreet lacinia. Integer pharetra velit lectus, nec efficitur ex egestas non. Nulla blandit vel justo ac semper. Vivamus malesuada nulla sit amet quam scelerisque aliquet non sed arcu. 
+        </div>
+    <pre class="msg_head"><a href="default.htm" target="iframe_a">
+    _   ___ ___ ___ _  _ ___ ___ ___ ___ ___ 
+   /_\ | _ \ _ \ __| \| |   \_ _/ __| __/ __|
+  / _ \|  _/  _/ _|| .` | |) | | (__| _|\__ \
+ /_/ \_\_| |_| |___|_|\_|___/___\___|___|___/
+    </a></pre>
+        <div class="msg_body">
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. In rhoncus, lorem id dictum convallis, est sapien pharetra velit, et pretium orci mauris at massa. Nunc pharetra scelerisque lacinia. Integer eu augue pellentesque, consequat magna in, varius magna. Nunc malesuada nisi ac dolor imperdiet, in vehicula lectus malesuada. Nullam vitae orci massa. Praesent fringilla ligula est, nec eleifend nunc vehicula vitae. Curabitur et mi ut diam feugiat congue. Mauris suscipit, ex in feugiat malesuada, lectus nulla volutpat leo, et varius nisi nisi sed enim. Nam iaculis risus eu viverra mollis.
+<br><br>
+Nam hendrerit pretium ipsum. Cras feugiat tellus a mauris ultricies, nec auctor magna ultricies. Pellentesque ornare pulvinar est, in dapibus nisi placerat non. Nullam convallis ante quis maximus consectetur. Pellentesque at nunc nec nisi viverra ultricies. Nulla ultricies a eros nec fermentum. Nulla facilisi. Ut enim orci, mattis non dolor eget, tristique gravida sem. Quisque libero quam, pharetra a lacinia sit amet, ultrices ac justo. In hac habitasse platea dictumst. Proin sit amet nulla et lectus fermentum rhoncus. Morbi quis porttitor justo. Donec libero augue, cursus nec lacinia sed, suscipit eu felis. Sed nibh enim, congue in enim ut, ornare semper nibh. Quisque consequat id ante eu gravida. Etiam eu justo rutrum, luctus turpis in, eleifend augue.
+<br><br>
+Aenean ac dolor ac quam cursus sodales. Donec est augue, ornare vitae nulla non, auctor luctus justo. Vivamus vitae aliquet enim. Cras a congue quam. Curabitur id erat vel enim congue efficitur in non felis. Sed interdum odio id risus feugiat, quis consequat odio tristique. Phasellus rhoncus purus sit amet rhoncus accumsan. Cras interdum vestibulum libero vel placerat. Nam posuere turpis et bibendum rhoncus. Quisque sodales sapien vel diam ornare rutrum.
+<br><br>
+Donec ex sapien, placerat vel dapibus ut, fringilla sagittis sem. Praesent eu euismod dui, ut volutpat justo. Ut et nibh enim. Nulla et sapien turpis. Maecenas bibendum libero ut felis feugiat, id luctus sapien condimentum. Curabitur sed purus pretium, sagittis lacus imperdiet, aliquam quam. Nam sed nisl finibus, eleifend massa in, mattis mauris. Sed efficitur felis justo, sit amet efficitur nisi sagittis mattis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Maecenas ac erat quis massa suscipit luctus. In facilisis massa non turpis mattis feugiat. Suspendisse potenti. Fusce blandit urna vitae ex bibendum aliquet. Curabitur vitae purus laoreet, congue tortor sed, ultricies lorem. Vivamus rhoncus, erat consectetur tempor tempor, magna sapien maximus enim, at ornare metus arcu sed est.
+<br><br>
+Aliquam dignissim elit quam, sed malesuada neque iaculis id. Sed dignissim, mauris et imperdiet bibendum, urna tellus varius arcu, ut pulvinar dui odio vitae nisi. Curabitur id turpis et ligula pretium dapibus vitae nec ipsum. Vivamus volutpat bibendum mauris, id lobortis odio dapibus quis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Praesent diam neque, feugiat id sollicitudin vitae, dignissim in dui. Pellentesque egestas porta purus, luctus facilisis nibh tristique porta. Cras fermentum, ex eget pellentesque ultricies, metus lectus aliquet lorem, nec mattis tortor arcu et sapien. Pellentesque egestas sapien rhoncus lacus laoreet lacinia. Integer pharetra velit lectus, nec efficitur ex egestas non. Nulla blandit vel justo ac semper. Vivamus malesuada nulla sit amet quam scelerisque aliquet non sed arcu. 
+        </div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div id="content"></div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+    </body>
+</html>
+
+
+
+
