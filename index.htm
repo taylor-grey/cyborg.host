@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+    	<meta charset="UTF-8">
+    	<title>CG</title>
+   		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    	<script type="text/javascript">//This script controls the sliding menus
+			$(document).ready(function() {
+				//hide the all of the element with class list_body
+				$(".list_body").hide();
+				//toggle the componenet with class list_body, when the the enveloping list_header is clicked
+				$(".list_header").click(function() {
+					$(this).next(".list_body").slideToggle(600);
+				});
+			});
+        </script>
+        <script type="text/javascript">//This script forces the page to jump to top on refresh, mainly because this was really annoying me while debugging, ideally though the cthulic line breaks at the bottom wont be needed once I figure out a better way (they're causing this problem)
+        	$(document).ready(function() {
+    			$(this).scrollTop(0);
+			});
+		</script>
+		<script type="text/javascript">//This script waits for the menu to slide open before redirecting to it, otherwise the redirected gets locked up without page space to jump to
+			redirectTime = "1000";
+			redirectURL = "#content";
+			function timedRedirect() {
+				setTimeout("location.href = redirectURL;",redirectTime);
+			}
+		</script>
+        <style>
+        	*
+        	{
+        		margin: 0;
+				padding: 0;
+				border: 0;
+				outline: 0;
+        	}
+        	body /*The only reason these body properties are set this way is because I watched a lot of "ghost in the shell" and "the matrix" as a kid ¯\_(ツ)_/¯ */
+        	{
+        		background-color: #000000;
+        		font-family: "Courier New", Courier, monospace;
+        		font-size: 0.8vw;            		
+        		text-align: left;            		
+        		color: #00FF00;
+        	}         	
+        	td 
+        	{
+        		width: 50%;
+        		vertical-align: top;
+        		padding: 0px 0px 0px;
+        	}
+        	p {
+        		padding: 0 0 0;
+        		border-style: none;
+        	}
+        	a 
+        	{
+        		outline: 0;            		
+        		color: #00FF00;
+        		text-decoration: none;
+        	}
+        	.list 
+        	{
+        		margin-left: auto;
+        		margin-right: auto;
+        		padding: 0px 0px 0px;
+        		border-color: #000000;            		
+        		border-style: none;
+        		width: 100%;
+        	}            	
+        	.list_body 
+        	{
+        		padding: 0px 0px 0px;
+        		background-color: #000000;
+        		border-style: none;
+        		border-left-width: 1px;
+        		border-bottom-width: 0px;
+        		border-top-width: 0px;
+        		border-right-width: 0px;
+        		border-color: #000000;        		
+        		margin-left: 3%;
+        	}
+        	.list_header 
+        	{            		
+        		cursor: pointer;
+        		padding: 0px 0px 0px;
+        		background-color: #000000;            		
+        		border-style: none;
+        		margin: 0px;
+        		border-left-width: 1px;
+        		border-bottom-width: 0px;
+        		border-top-width: 0px;
+        		border-right-width: 0px;
+        		border-color: #000000;
+        	}            	
+        	.title /*higher z-index than ".fixed" puts ".title" in front of ".fixed", the shadow properties are for making a fuzzy border between the ".title" and .".fixed"*/ 
+        	{
+        		display: block;
+        		font-family: monospace;
+        		margin: 0;
+        		position: relative;
+        		z-index: 999;
+        		-moz-box-shadow: 15px 30px 30px #000;
+        		-webkit-box-shadow: 15px 30px 30px #000;
+        		box-shadow: 15px 30px 30px #000;
+        	}
+        	.fixed /*"position: fixed;" makes the div (containing the iframe illustration panel) follow the user while scrolling, while the z-index keeps it behind ".title"*/
+        	{
+        		position: fixed;
+        		z-index: 998;
+        		top: 0px;
+        	}            	
+        	.illustration /*position is set to inherit so that it will follow ".fixed" while the user scrolls, for unknown reasons "width: 50%;" makes the iframe overlay the side menu which is why it's at 45%*/
+        	{
+        		position: inherit;
+        		height: 150%; 
+        		width: 45%; 
+        		border: none
+        	}
+        	.spacer_text 
+        	{
+        		color: #000000;
+        	}
+        	.side_menu /*used margin-left to shove the side menu to the right, otherwise it falls to the left since the other side of the table is ".fixed"*/
+        	{
+        		margin-left: 16%;
+        	}          
+        </style>
+    </head>
+    <body>
+		<div class="list">
+			<pre class="list_header title" onclick="JavaScript:timedRedirect()"><!--The pre tag ensures that the texts preformatting will hold so double spaces and returns don't get automatically collapsed, onclick waits for 1 second and then redirects the browser to the content id-->
+
+
+			                                 `                                                                                                                     
+
+			                          `                                                                 `                                        `                      
+			                        ``                                                                  `                                        `                        
+			                       ``              ``             ``                                    ``                                      ``                          
+			                      ``               ``            ```                                    ```           ``                       ``                           
+			                      ``            .. ``      ``   ```                                      ```                                  ``                            
+			                     ```           `.. ````` ````   ```                                      ````-.``````                       ``                              
+			              ```    ```       ``  `..``.+o/.```   ````...``                  ``.........``   ```//...```                     ```     ``         ````   `````   
+			          ```````.`  .:-```  `-:.` `..-:-oso/:`````-::----:-.``   `.``....` `.....``..----.``````-::os:``                    ```   `````      `` ``..````.--.   
+			         ```    `.----::-````-/-````---..oso.--.``::-`````...--```.--..``````---`.-+ossssso/-`````-:ss+..````      ```     ```   ``````     ```  `--.` ``...`   
+			        .-````.:osssssso+.`:/:-````./+:..oso-/ooo++:.```.:/+ooo+:..--.:/..:++/---osssoooossss+-.``-:sso...-.``````````  ```````````````  ````   `.-.`  ``      
+			       `:-```:oss+/::+oss-.+so.``..:ss/.-osssoo+osso:..-osso+ossso///:ss+osooo:/ssso:-----:+o/..``-:sso-:/+/-.`.-......``.`````...--.```````.::-.-`` ```       `
+			       `--``:sso:..```.----:ss+....oss/--oss/::--/sso--oss/-:///oss+//ssso/----+sss:---::::::---..-/sssosoosso:--.`-:+oo/:-.-::::::--.-/:```:ss+-.```````      `
+			       ```..+ss/-..``````.-:+ss:.-/ss/---oss---..-oss:/ss+-:::--:sso//oss--....+sso:--/ssssssssooo+/ssso:--/oss::./sssoossso+///+ooooooo/../+sss//--...````   ``
+			         ``.oss.`````````..--oso-:ss+-...oso....--oss:/ss/.--..--sss::oss--...-/sss:---/++++++oooo+/oss:...-+ss/:/sso:--/+osso:-oss++oos+-:osssssss+--.````````
+			      ``   `oss:````````.....:ss++ss-...-oss-...-:sss::ss+--...-:sso--oss--....-osso/::-----::----:/oss:....:ss+:oss/-..://sss//sss:---/+---/sss//::--:.````.--
+			           `:sss/-...-/o+.`...+ssss/.``..osso/:::+ss+--+ss+/---:oss/--oss-.....--ossssooo+ooss:----+oss/...-:sso/+ss+--:+o+oss/:+sss+/-:+/--:sss:------.```.-..
+			            `-osssooossso.````.osso..```.+s++osssso:...-/osssossso:..-+ss-......-/+osssssssss+-...-:+ss+---:/sss+/sso-:/++:+ss+:::+ossso++/::sss:...-:-.```-:.``
+			             ``-/+ooo+/-.`````.+ss:.`````.--.-:::-.```....-/++/:-....--::--..-..::/:::////+/:.......+sso::::-+ss+:+ss+/++::oss+/:::/++ssso+/:oss/...--.```.-:-``
+			              ````..``````..``-ss+-```````.``.-.``````.--.`.--...```--```.---.`-:::.............```./+++//:-.:oo+//+sssso+osso:-oo///:+sss/::+sso.--:.````.---.
+			       `     `````````````.```/o+...``````````--```....-.```...````..````.--.``.:-.......:::::---.``/++/:.`..`.:+o+::/oosoo+//:./ssssosss+////sss+/+:.```..`.-
+			            `.`````  ```...``````.......-.````-:.`..```.`````..``````````.--```.-.---.--/+++oo++++-`/o+/.```...:os+-..:/+/:--:-..-/+oo+/:-//:/+ossss:````.```
+			            `.`   ``   `.-.`` ```..``..-::.  ``--.`````.`````..```````````.-````..:/:---::::::://:``/o+:````...-ss/-..-+++/-..``.:/:---..-/+/::----.```````    
+			                        ...`` ````  `````..` ```..`..```   `.--.`       ``..``````-//:.........`````:+/-`````.`.os:...:/+++:-..-:::----.``-----...```````       
+			                        ````  ``   ..` ```..`  `````.``    `.--`         ``..  ````-//:::::/::``````.//-`````-..:+/...--/++//+//:.`.--.````````....``           
+			                          ``  `````.-.```````  ``.`.``````  ```````       `..`````..-://+++/:-`  ````/+-...`.:.``/::.`.-/+/::::.```````..```````                
+			                              `.`` `.`         `.-`    `.`  ``             ```````--.--::::-`    `` `:/-.```.-```.--.```.----.....```````                       
+			                               ```  `  ````.`  `-.`     ``  ``                ````.........`     `` `---`  ``  ```--`   ```...````` `                           
+			                 `              ``  ...`` ``.  `...``        `                   `````` ```````.``` `--.         .-.    ``````                                  
+			                 ``    `        `   ```    ```  `   `        `                           ```......  .:-`         ..`      ```                                   
+			                                     `      ``      `                              ```` `           `-.          ``                                             
+			                               `            ``       ``                             ```    ``       `..                                                         
+			                               `            `                                           `````       ``.       
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			</a></pre>
+				<div class="list_body">
+					<table>
+						<tr>
+							<td>
+								<div class="fixed">
+									<iframe class="illustration" src="default.htm" name="illustration_iframe" frameborder="0" scrolling="no"></iframe><!--"src" sets the default contents of the iframe, "name" gives us a tag to later use as a target for having links open up inside the iframe instead of another tab-->
+								</div>
+							</td>
+							<td>
+								<br>
+								<br>
+								<br  id="content"><!--#content id marks the spot where the browser will ridirect to once the title is clicked, line breaks are typogaphic spacers-->
+								<br>
+								<br>
+								<pre class="list_header side_menu"><a href="default.htm" target="illustration_iframe"><!--"href" defines the link that "target" will open in the defined iframe-->
+    /  / _  _ ____ ____ ____ _ ____ _  _     __        __     ____ 
+   /  /  |  | |___ |__/ [__  | |  | |\ |    |  |  /|  |  | __ |__| 
+  /  /    \/  |___ |  \ ___] | |__| | \|    |__| . | .|__|    |  | </a></pre>
+								<div class="list_body">
+	    							<pre class="list_header"><a href="abstract.htm" target="illustration_iframe">
+      ____ ___  ____ ___ ____ ____ ____ ___ 
+__ __ |__| |__] [__   |  |__/ |__| |     |  
+      |  | |__] ___]  |  |  \ |  | |___  | </a></pre>
+        								<div class="list_body">
+<br><br>        								
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. In rhoncus, lorem id dictum convallis, est sapien pharetra velit, et pretium orci mauris at massa. Nunc pharetra scelerisque lacinia. Integer eu augue pellentesque, consequat magna in, varius magna. Nunc malesuada nisi ac dolor imperdiet, in vehicula lectus malesuada. Nullam vitae orci massa. Praesent fringilla ligula est, nec eleifend nunc vehicula vitae. Curabitur et mi ut diam feugiat congue. Mauris suscipit, ex in feugiat malesuada, lectus nulla volutpat leo, et varius nisi nisi sed enim. Nam iaculis risus eu viverra mollis.
+<br><br>
+Nam hendrerit pretium ipsum. Cras feugiat tellus a mauris ultricies, nec auctor magna ultricies. Pellentesque ornare pulvinar est, in dapibus nisi placerat non. Nullam convallis ante quis maximus consectetur. Pellentesque at nunc nec nisi viverra ultricies. Nulla ultricies a eros nec fermentum. Nulla facilisi. Ut enim orci, mattis non dolor eget, tristique gravida sem. Quisque libero quam, pharetra a lacinia sit amet, ultrices ac justo. In hac habitasse platea dictumst. Proin sit amet nulla et lectus fermentum rhoncus. Morbi quis porttitor justo. Donec libero augue, cursus nec lacinia sed, suscipit eu felis. Sed nibh enim, congue in enim ut, ornare semper nibh. Quisque consequat id ante eu gravida. Etiam eu justo rutrum, luctus turpis in, eleifend augue.
+<br><br>
+Aenean ac dolor ac quam cursus sodales. Donec est augue, ornare vitae nulla non, auctor luctus justo. Vivamus vitae aliquet enim. Cras a congue quam. Curabitur id erat vel enim congue efficitur in non felis. Sed interdum odio id risus feugiat, quis consequat odio tristique. Phasellus rhoncus purus sit amet rhoncus accumsan. Cras interdum vestibulum libero vel placerat. Nam posuere turpis et bibendum rhoncus. Quisque sodales sapien vel diam ornare rutrum.
+<br><br>
+Donec ex sapien, placerat vel dapibus ut, fringilla sagittis sem. Praesent eu euismod dui, ut volutpat justo. Ut et nibh enim. Nulla et sapien turpis. Maecenas bibendum libero ut felis feugiat, id luctus sapien condimentum. Curabitur sed purus pretium, sagittis lacus imperdiet, aliquam quam. Nam sed nisl finibus, eleifend massa in, mattis mauris. Sed efficitur felis justo, sit amet efficitur nisi sagittis mattis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Maecenas ac erat quis massa suscipit luctus. In facilisis massa non turpis mattis feugiat. Suspendisse potenti. Fusce blandit urna vitae ex bibendum aliquet. Curabitur vitae purus laoreet, congue tortor sed, ultricies lorem. Vivamus rhoncus, erat consectetur tempor tempor, magna sapien maximus enim, at ornare metus arcu sed est.
+<br><br>
+Aliquam dignissim elit quam, sed malesuada neque iaculis id. Sed dignissim, mauris et imperdiet bibendum, urna tellus varius arcu, ut pulvinar dui odio vitae nisi. Curabitur id turpis et ligula pretium dapibus vitae nec ipsum. Vivamus volutpat bibendum mauris, id lobortis odio dapibus quis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Praesent diam neque, feugiat id sollicitudin vitae, dignissim in dui. Pellentesque egestas porta purus, luctus facilisis nibh tristique porta. Cras fermentum, ex eget pellentesque ultricies, metus lectus aliquet lorem, nec mattis tortor arcu et sapien. Pellentesque egestas sapien rhoncus lacus laoreet lacinia. Integer pharetra velit lectus, nec efficitur ex egestas non. Nulla blandit vel justo ac semper. Vivamus malesuada nulla sit amet quam scelerisque aliquet non sed arcu. 
+       									 </div>
+    								<pre class="list_header"><a href="default.htm" target="illustration_iframe">
+      _ _  _ ___ ____ ____ ___  _  _ ____ ___ _ ____ _  _ 
+__ __ | |\ |  |  |__/ |  | |  \ |  | |     |  | |  | |\ | 
+      | | \|  |  |  \ |__| |__/ |__| |___  |  | |__| | \| </a></pre>
+        								<div class="list_body">
+<br><br>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. In rhoncus, lorem id dictum convallis, est sapien pharetra velit, et pretium orci mauris at massa. Nunc pharetra scelerisque lacinia. Integer eu augue pellentesque, consequat magna in, varius magna. Nunc malesuada nisi ac dolor imperdiet, in vehicula lectus malesuada. Nullam vitae orci massa. Praesent fringilla ligula est, nec eleifend nunc vehicula vitae. Curabitur et mi ut diam feugiat congue. Mauris suscipit, ex in feugiat malesuada, lectus nulla volutpat leo, et varius nisi nisi sed enim. Nam iaculis risus eu viverra mollis.
+<br><br>
+Nam hendrerit pretium ipsum. Cras feugiat tellus a mauris ultricies, nec auctor magna ultricies. Pellentesque ornare pulvinar est, in dapibus nisi placerat non. Nullam convallis ante quis maximus consectetur. Pellentesque at nunc nec nisi viverra ultricies. Nulla ultricies a eros nec fermentum. Nulla facilisi. Ut enim orci, mattis non dolor eget, tristique gravida sem. Quisque libero quam, pharetra a lacinia sit amet, ultrices ac justo. In hac habitasse platea dictumst. Proin sit amet nulla et lectus fermentum rhoncus. Morbi quis porttitor justo. Donec libero augue, cursus nec lacinia sed, suscipit eu felis. Sed nibh enim, congue in enim ut, ornare semper nibh. Quisque consequat id ante eu gravida. Etiam eu justo rutrum, luctus turpis in, eleifend augue.
+<br><br>
+Aenean ac dolor ac quam cursus sodales. Donec est augue, ornare vitae nulla non, auctor luctus justo. Vivamus vitae aliquet enim. Cras a congue quam. Curabitur id erat vel enim congue efficitur in non felis. Sed interdum odio id risus feugiat, quis consequat odio tristique. Phasellus rhoncus purus sit amet rhoncus accumsan. Cras interdum vestibulum libero vel placerat. Nam posuere turpis et bibendum rhoncus. Quisque sodales sapien vel diam ornare rutrum.
+<br><br>
+Donec ex sapien, placerat vel dapibus ut, fringilla sagittis sem. Praesent eu euismod dui, ut volutpat justo. Ut et nibh enim. Nulla et sapien turpis. Maecenas bibendum libero ut felis feugiat, id luctus sapien condimentum. Curabitur sed purus pretium, sagittis lacus imperdiet, aliquam quam. Nam sed nisl finibus, eleifend massa in, mattis mauris. Sed efficitur felis justo, sit amet efficitur nisi sagittis mattis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Maecenas ac erat quis massa suscipit luctus. In facilisis massa non turpis mattis feugiat. Suspendisse potenti. Fusce blandit urna vitae ex bibendum aliquet. Curabitur vitae purus laoreet, congue tortor sed, ultricies lorem. Vivamus rhoncus, erat consectetur tempor tempor, magna sapien maximus enim, at ornare metus arcu sed est.
+<br><br>
+Aliquam dignissim elit quam, sed malesuada neque iaculis id. Sed dignissim, mauris et imperdiet bibendum, urna tellus varius arcu, ut pulvinar dui odio vitae nisi. Curabitur id turpis et ligula pretium dapibus vitae nec ipsum. Vivamus volutpat bibendum mauris, id lobortis odio dapibus quis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Praesent diam neque, feugiat id sollicitudin vitae, dignissim in dui. Pellentesque egestas porta purus, luctus facilisis nibh tristique porta. Cras fermentum, ex eget pellentesque ultricies, metus lectus aliquet lorem, nec mattis tortor arcu et sapien. Pellentesque egestas sapien rhoncus lacus laoreet lacinia. Integer pharetra velit lectus, nec efficitur ex egestas non. Nulla blandit vel justo ac semper. Vivamus malesuada nulla sit amet quam scelerisque aliquet non sed arcu. 
+        								</div>
+   									 <pre class="list_header"><a href="default.htm" target="illustration_iframe">
+      _  _ ____ ___ _  _ ____ ___  ____ 
+__ __ |\/| |___  |  |__| |  | |  \ [__  
+      |  | |___  |  |  | |__| |__/ ___] </a></pre>
+        								<div class="list_body">
+<br><br>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. In rhoncus, lorem id dictum convallis, est sapien pharetra velit, et pretium orci mauris at massa. Nunc pharetra scelerisque lacinia. Integer eu augue pellentesque, consequat magna in, varius magna. Nunc malesuada nisi ac dolor imperdiet, in vehicula lectus malesuada. Nullam vitae orci massa. Praesent fringilla ligula est, nec eleifend nunc vehicula vitae. Curabitur et mi ut diam feugiat congue. Mauris suscipit, ex in feugiat malesuada, lectus nulla volutpat leo, et varius nisi nisi sed enim. Nam iaculis risus eu viverra mollis.
+<br><br>
+Nam hendrerit pretium ipsum. Cras feugiat tellus a mauris ultricies, nec auctor magna ultricies. Pellentesque ornare pulvinar est, in dapibus nisi placerat non. Nullam convallis ante quis maximus consectetur. Pellentesque at nunc nec nisi viverra ultricies. Nulla ultricies a eros nec fermentum. Nulla facilisi. Ut enim orci, mattis non dolor eget, tristique gravida sem. Quisque libero quam, pharetra a lacinia sit amet, ultrices ac justo. In hac habitasse platea dictumst. Proin sit amet nulla et lectus fermentum rhoncus. Morbi quis porttitor justo. Donec libero augue, cursus nec lacinia sed, suscipit eu felis. Sed nibh enim, congue in enim ut, ornare semper nibh. Quisque consequat id ante eu gravida. Etiam eu justo rutrum, luctus turpis in, eleifend augue.
+<br><br>
+Aenean ac dolor ac quam cursus sodales. Donec est augue, ornare vitae nulla non, auctor luctus justo. Vivamus vitae aliquet enim. Cras a congue quam. Curabitur id erat vel enim congue efficitur in non felis. Sed interdum odio id risus feugiat, quis consequat odio tristique. Phasellus rhoncus purus sit amet rhoncus accumsan. Cras interdum vestibulum libero vel placerat. Nam posuere turpis et bibendum rhoncus. Quisque sodales sapien vel diam ornare rutrum.
+<br><br>
+Donec ex sapien, placerat vel dapibus ut, fringilla sagittis sem. Praesent eu euismod dui, ut volutpat justo. Ut et nibh enim. Nulla et sapien turpis. Maecenas bibendum libero ut felis feugiat, id luctus sapien condimentum. Curabitur sed purus pretium, sagittis lacus imperdiet, aliquam quam. Nam sed nisl finibus, eleifend massa in, mattis mauris. Sed efficitur felis justo, sit amet efficitur nisi sagittis mattis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Maecenas ac erat quis massa suscipit luctus. In facilisis massa non turpis mattis feugiat. Suspendisse potenti. Fusce blandit urna vitae ex bibendum aliquet. Curabitur vitae purus laoreet, congue tortor sed, ultricies lorem. Vivamus rhoncus, erat consectetur tempor tempor, magna sapien maximus enim, at ornare metus arcu sed est.
+<br><br>
+Aliquam dignissim elit quam, sed malesuada neque iaculis id. Sed dignissim, mauris et imperdiet bibendum, urna tellus varius arcu, ut pulvinar dui odio vitae nisi. Curabitur id turpis et ligula pretium dapibus vitae nec ipsum. Vivamus volutpat bibendum mauris, id lobortis odio dapibus quis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Praesent diam neque, feugiat id sollicitudin vitae, dignissim in dui. Pellentesque egestas porta purus, luctus facilisis nibh tristique porta. Cras fermentum, ex eget pellentesque ultricies, metus lectus aliquet lorem, nec mattis tortor arcu et sapien. Pellentesque egestas sapien rhoncus lacus laoreet lacinia. Integer pharetra velit lectus, nec efficitur ex egestas non. Nulla blandit vel justo ac semper. Vivamus malesuada nulla sit amet quam scelerisque aliquet non sed arcu. 
+       									</div>
+    								<pre class="list_header"><a href="default.htm" target="illustration_iframe">
+      ____ ____ ____ _  _ _    ___ ____ 
+__ __ |__/ |___ [__  |  | |     |  [__  
+      |  \ |___ ___] |__| |___  |  ___]</a></pre>
+        								<div class="list_body">
+<br><br>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. In rhoncus, lorem id dictum convallis, est sapien pharetra velit, et pretium orci mauris at massa. Nunc pharetra scelerisque lacinia. Integer eu augue pellentesque, consequat magna in, varius magna. Nunc malesuada nisi ac dolor imperdiet, in vehicula lectus malesuada. Nullam vitae orci massa. Praesent fringilla ligula est, nec eleifend nunc vehicula vitae. Curabitur et mi ut diam feugiat congue. Mauris suscipit, ex in feugiat malesuada, lectus nulla volutpat leo, et varius nisi nisi sed enim. Nam iaculis risus eu viverra mollis.
+<br><br>
+Nam hendrerit pretium ipsum. Cras feugiat tellus a mauris ultricies, nec auctor magna ultricies. Pellentesque ornare pulvinar est, in dapibus nisi placerat non. Nullam convallis ante quis maximus consectetur. Pellentesque at nunc nec nisi viverra ultricies. Nulla ultricies a eros nec fermentum. Nulla facilisi. Ut enim orci, mattis non dolor eget, tristique gravida sem. Quisque libero quam, pharetra a lacinia sit amet, ultrices ac justo. In hac habitasse platea dictumst. Proin sit amet nulla et lectus fermentum rhoncus. Morbi quis porttitor justo. Donec libero augue, cursus nec lacinia sed, suscipit eu felis. Sed nibh enim, congue in enim ut, ornare semper nibh. Quisque consequat id ante eu gravida. Etiam eu justo rutrum, luctus turpis in, eleifend augue.
+<br><br>
+Aenean ac dolor ac quam cursus sodales. Donec est augue, ornare vitae nulla non, auctor luctus justo. Vivamus vitae aliquet enim. Cras a congue quam. Curabitur id erat vel enim congue efficitur in non felis. Sed interdum odio id risus feugiat, quis consequat odio tristique. Phasellus rhoncus purus sit amet rhoncus accumsan. Cras interdum vestibulum libero vel placerat. Nam posuere turpis et bibendum rhoncus. Quisque sodales sapien vel diam ornare rutrum.
+<br><br>
+Donec ex sapien, placerat vel dapibus ut, fringilla sagittis sem. Praesent eu euismod dui, ut volutpat justo. Ut et nibh enim. Nulla et sapien turpis. Maecenas bibendum libero ut felis feugiat, id luctus sapien condimentum. Curabitur sed purus pretium, sagittis lacus imperdiet, aliquam quam. Nam sed nisl finibus, eleifend massa in, mattis mauris. Sed efficitur felis justo, sit amet efficitur nisi sagittis mattis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Maecenas ac erat quis massa suscipit luctus. In facilisis massa non turpis mattis feugiat. Suspendisse potenti. Fusce blandit urna vitae ex bibendum aliquet. Curabitur vitae purus laoreet, congue tortor sed, ultricies lorem. Vivamus rhoncus, erat consectetur tempor tempor, magna sapien maximus enim, at ornare metus arcu sed est.
+<br><br>
+Aliquam dignissim elit quam, sed malesuada neque iaculis id. Sed dignissim, mauris et imperdiet bibendum, urna tellus varius arcu, ut pulvinar dui odio vitae nisi. Curabitur id turpis et ligula pretium dapibus vitae nec ipsum. Vivamus volutpat bibendum mauris, id lobortis odio dapibus quis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Praesent diam neque, feugiat id sollicitudin vitae, dignissim in dui. Pellentesque egestas porta purus, luctus facilisis nibh tristique porta. Cras fermentum, ex eget pellentesque ultricies, metus lectus aliquet lorem, nec mattis tortor arcu et sapien. Pellentesque egestas sapien rhoncus lacus laoreet lacinia. Integer pharetra velit lectus, nec efficitur ex egestas non. Nulla blandit vel justo ac semper. Vivamus malesuada nulla sit amet quam scelerisque aliquet non sed arcu. 
+       									 </div>
+    								<pre class="list_header"><a href="default.htm" target="illustration_iframe">
+      ___  _ ____ ____ _  _ ____ ____ _ ____ _  _ 
+__ __ |  \ | [__  |    |  | [__  [__  | |  | |\ | 
+      |__/ | ___] |___ |__| ___] ___] | |__| | \| </a></pre>
+       									 <div class="list_body">
+<br><br>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. In rhoncus, lorem id dictum convallis, est sapien pharetra velit, et pretium orci mauris at massa. Nunc pharetra scelerisque lacinia. Integer eu augue pellentesque, consequat magna in, varius magna. Nunc malesuada nisi ac dolor imperdiet, in vehicula lectus malesuada. Nullam vitae orci massa. Praesent fringilla ligula est, nec eleifend nunc vehicula vitae. Curabitur et mi ut diam feugiat congue. Mauris suscipit, ex in feugiat malesuada, lectus nulla volutpat leo, et varius nisi nisi sed enim. Nam iaculis risus eu viverra mollis.
+<br><br>
+Nam hendrerit pretium ipsum. Cras feugiat tellus a mauris ultricies, nec auctor magna ultricies. Pellentesque ornare pulvinar est, in dapibus nisi placerat non. Nullam convallis ante quis maximus consectetur. Pellentesque at nunc nec nisi viverra ultricies. Nulla ultricies a eros nec fermentum. Nulla facilisi. Ut enim orci, mattis non dolor eget, tristique gravida sem. Quisque libero quam, pharetra a lacinia sit amet, ultrices ac justo. In hac habitasse platea dictumst. Proin sit amet nulla et lectus fermentum rhoncus. Morbi quis porttitor justo. Donec libero augue, cursus nec lacinia sed, suscipit eu felis. Sed nibh enim, congue in enim ut, ornare semper nibh. Quisque consequat id ante eu gravida. Etiam eu justo rutrum, luctus turpis in, eleifend augue.
+<br><br>
+Aenean ac dolor ac quam cursus sodales. Donec est augue, ornare vitae nulla non, auctor luctus justo. Vivamus vitae aliquet enim. Cras a congue quam. Curabitur id erat vel enim congue efficitur in non felis. Sed interdum odio id risus feugiat, quis consequat odio tristique. Phasellus rhoncus purus sit amet rhoncus accumsan. Cras interdum vestibulum libero vel placerat. Nam posuere turpis et bibendum rhoncus. Quisque sodales sapien vel diam ornare rutrum.
+<br><br>
+Donec ex sapien, placerat vel dapibus ut, fringilla sagittis sem. Praesent eu euismod dui, ut volutpat justo. Ut et nibh enim. Nulla et sapien turpis. Maecenas bibendum libero ut felis feugiat, id luctus sapien condimentum. Curabitur sed purus pretium, sagittis lacus imperdiet, aliquam quam. Nam sed nisl finibus, eleifend massa in, mattis mauris. Sed efficitur felis justo, sit amet efficitur nisi sagittis mattis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Maecenas ac erat quis massa suscipit luctus. In facilisis massa non turpis mattis feugiat. Suspendisse potenti. Fusce blandit urna vitae ex bibendum aliquet. Curabitur vitae purus laoreet, congue tortor sed, ultricies lorem. Vivamus rhoncus, erat consectetur tempor tempor, magna sapien maximus enim, at ornare metus arcu sed est.
+<br><br>
+Aliquam dignissim elit quam, sed malesuada neque iaculis id. Sed dignissim, mauris et imperdiet bibendum, urna tellus varius arcu, ut pulvinar dui odio vitae nisi. Curabitur id turpis et ligula pretium dapibus vitae nec ipsum. Vivamus volutpat bibendum mauris, id lobortis odio dapibus quis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Praesent diam neque, feugiat id sollicitudin vitae, dignissim in dui. Pellentesque egestas porta purus, luctus facilisis nibh tristique porta. Cras fermentum, ex eget pellentesque ultricies, metus lectus aliquet lorem, nec mattis tortor arcu et sapien. Pellentesque egestas sapien rhoncus lacus laoreet lacinia. Integer pharetra velit lectus, nec efficitur ex egestas non. Nulla blandit vel justo ac semper. Vivamus malesuada nulla sit amet quam scelerisque aliquet non sed arcu. 
+       									 </div>         
+   									<pre class="list_header"><a href="default.htm" target="illustration_iframe">
+      ____ ____ _  _ _  _ ____ _ _ _ _    ____ ___  ____ ____ _  _ ____ _  _ ___ ____ 
+__ __ |__| |    |_/  |\ | |  | | | | |    |___ |  \ | __ |___ |\/| |___ |\ |  |  [__  
+      |  | |___ | \_ | \| |__| |_|_| |___ |___ |__/ |__] |___ |  | |___ | \|  |  ___]</a></pre>
+        <div class="list_body">
+<br><br>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. In rhoncus, lorem id dictum convallis, est sapien pharetra velit, et pretium orci mauris at massa. Nunc pharetra scelerisque lacinia. Integer eu augue pellentesque, consequat magna in, varius magna. Nunc malesuada nisi ac dolor imperdiet, in vehicula lectus malesuada. Nullam vitae orci massa. Praesent fringilla ligula est, nec eleifend nunc vehicula vitae. Curabitur et mi ut diam feugiat congue. Mauris suscipit, ex in feugiat malesuada, lectus nulla volutpat leo, et varius nisi nisi sed enim. Nam iaculis risus eu viverra mollis.
+<br><br>
+Nam hendrerit pretium ipsum. Cras feugiat tellus a mauris ultricies, nec auctor magna ultricies. Pellentesque ornare pulvinar est, in dapibus nisi placerat non. Nullam convallis ante quis maximus consectetur. Pellentesque at nunc nec nisi viverra ultricies. Nulla ultricies a eros nec fermentum. Nulla facilisi. Ut enim orci, mattis non dolor eget, tristique gravida sem. Quisque libero quam, pharetra a lacinia sit amet, ultrices ac justo. In hac habitasse platea dictumst. Proin sit amet nulla et lectus fermentum rhoncus. Morbi quis porttitor justo. Donec libero augue, cursus nec lacinia sed, suscipit eu felis. Sed nibh enim, congue in enim ut, ornare semper nibh. Quisque consequat id ante eu gravida. Etiam eu justo rutrum, luctus turpis in, eleifend augue.
+<br><br>
+Aenean ac dolor ac quam cursus sodales. Donec est augue, ornare vitae nulla non, auctor luctus justo. Vivamus vitae aliquet enim. Cras a congue quam. Curabitur id erat vel enim congue efficitur in non felis. Sed interdum odio id risus feugiat, quis consequat odio tristique. Phasellus rhoncus purus sit amet rhoncus accumsan. Cras interdum vestibulum libero vel placerat. Nam posuere turpis et bibendum rhoncus. Quisque sodales sapien vel diam ornare rutrum.
+<br><br>
+Donec ex sapien, placerat vel dapibus ut, fringilla sagittis sem. Praesent eu euismod dui, ut volutpat justo. Ut et nibh enim. Nulla et sapien turpis. Maecenas bibendum libero ut felis feugiat, id luctus sapien condimentum. Curabitur sed purus pretium, sagittis lacus imperdiet, aliquam quam. Nam sed nisl finibus, eleifend massa in, mattis mauris. Sed efficitur felis justo, sit amet efficitur nisi sagittis mattis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Maecenas ac erat quis massa suscipit luctus. In facilisis massa non turpis mattis feugiat. Suspendisse potenti. Fusce blandit urna vitae ex bibendum aliquet. Curabitur vitae purus laoreet, congue tortor sed, ultricies lorem. Vivamus rhoncus, erat consectetur tempor tempor, magna sapien maximus enim, at ornare metus arcu sed est.
+<br><br>
+Aliquam dignissim elit quam, sed malesuada neque iaculis id. Sed dignissim, mauris et imperdiet bibendum, urna tellus varius arcu, ut pulvinar dui odio vitae nisi. Curabitur id turpis et ligula pretium dapibus vitae nec ipsum. Vivamus volutpat bibendum mauris, id lobortis odio dapibus quis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Praesent diam neque, feugiat id sollicitudin vitae, dignissim in dui. Pellentesque egestas porta purus, luctus facilisis nibh tristique porta. Cras fermentum, ex eget pellentesque ultricies, metus lectus aliquet lorem, nec mattis tortor arcu et sapien. Pellentesque egestas sapien rhoncus lacus laoreet lacinia. Integer pharetra velit lectus, nec efficitur ex egestas non. Nulla blandit vel justo ac semper. Vivamus malesuada nulla sit amet quam scelerisque aliquet non sed arcu. 
+        								</div>
+   									<pre class="list_header"><a href="default.htm" target="illustration_iframe">
+      _    _ ___ ____ ____ ____ ___ _  _ ____ ____    ____ _ ___ ____ ___  
+__ __ |    |  |  |___ |__/ |__|  |  |  | |__/ |___    |    |  |  |___ |  \ 
+      |___ |  |  |___ |  \ |  |  |  |__| |  \ |___    |___ |  |  |___ |__/ </a></pre>
+        								<div class="list_body">
+<br><br>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. In rhoncus, lorem id dictum convallis, est sapien pharetra velit, et pretium orci mauris at massa. Nunc pharetra scelerisque lacinia. Integer eu augue pellentesque, consequat magna in, varius magna. Nunc malesuada nisi ac dolor imperdiet, in vehicula lectus malesuada. Nullam vitae orci massa. Praesent fringilla ligula est, nec eleifend nunc vehicula vitae. Curabitur et mi ut diam feugiat congue. Mauris suscipit, ex in feugiat malesuada, lectus nulla volutpat leo, et varius nisi nisi sed enim. Nam iaculis risus eu viverra mollis.
+<br><br>
+Nam hendrerit pretium ipsum. Cras feugiat tellus a mauris ultricies, nec auctor magna ultricies. Pellentesque ornare pulvinar est, in dapibus nisi placerat non. Nullam convallis ante quis maximus consectetur. Pellentesque at nunc nec nisi viverra ultricies. Nulla ultricies a eros nec fermentum. Nulla facilisi. Ut enim orci, mattis non dolor eget, tristique gravida sem. Quisque libero quam, pharetra a lacinia sit amet, ultrices ac justo. In hac habitasse platea dictumst. Proin sit amet nulla et lectus fermentum rhoncus. Morbi quis porttitor justo. Donec libero augue, cursus nec lacinia sed, suscipit eu felis. Sed nibh enim, congue in enim ut, ornare semper nibh. Quisque consequat id ante eu gravida. Etiam eu justo rutrum, luctus turpis in, eleifend augue.
+<br><br>
+Aenean ac dolor ac quam cursus sodales. Donec est augue, ornare vitae nulla non, auctor luctus justo. Vivamus vitae aliquet enim. Cras a congue quam. Curabitur id erat vel enim congue efficitur in non felis. Sed interdum odio id risus feugiat, quis consequat odio tristique. Phasellus rhoncus purus sit amet rhoncus accumsan. Cras interdum vestibulum libero vel placerat. Nam posuere turpis et bibendum rhoncus. Quisque sodales sapien vel diam ornare rutrum.
+<br><br>
+Donec ex sapien, placerat vel dapibus ut, fringilla sagittis sem. Praesent eu euismod dui, ut volutpat justo. Ut et nibh enim. Nulla et sapien turpis. Maecenas bibendum libero ut felis feugiat, id luctus sapien condimentum. Curabitur sed purus pretium, sagittis lacus imperdiet, aliquam quam. Nam sed nisl finibus, eleifend massa in, mattis mauris. Sed efficitur felis justo, sit amet efficitur nisi sagittis mattis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Maecenas ac erat quis massa suscipit luctus. In facilisis massa non turpis mattis feugiat. Suspendisse potenti. Fusce blandit urna vitae ex bibendum aliquet. Curabitur vitae purus laoreet, congue tortor sed, ultricies lorem. Vivamus rhoncus, erat consectetur tempor tempor, magna sapien maximus enim, at ornare metus arcu sed est.
+<br><br>
+Aliquam dignissim elit quam, sed malesuada neque iaculis id. Sed dignissim, mauris et imperdiet bibendum, urna tellus varius arcu, ut pulvinar dui odio vitae nisi. Curabitur id turpis et ligula pretium dapibus vitae nec ipsum. Vivamus volutpat bibendum mauris, id lobortis odio dapibus quis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Praesent diam neque, feugiat id sollicitudin vitae, dignissim in dui. Pellentesque egestas porta purus, luctus facilisis nibh tristique porta. Cras fermentum, ex eget pellentesque ultricies, metus lectus aliquet lorem, nec mattis tortor arcu et sapien. Pellentesque egestas sapien rhoncus lacus laoreet lacinia. Integer pharetra velit lectus, nec efficitur ex egestas non. Nulla blandit vel justo ac semper. Vivamus malesuada nulla sit amet quam scelerisque aliquet non sed arcu. 
+        								</div>
+    								<pre class="list_header"><a href="default.htm" target="illustration_iframe">
+      ____ ___  ___  ____ _  _ ___  _ ____ ____ ____ 
+__ __ |__| |__] |__] |___ |\ | |  \ | |    |___ [__  
+      |  | |    |    |___ | \| |__/ | |___ |___ ___]</a></pre>
+        								<div class="list_body">
+<br><br>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. In rhoncus, lorem id dictum convallis, est sapien pharetra velit, et pretium orci mauris at massa. Nunc pharetra scelerisque lacinia. Integer eu augue pellentesque, consequat magna in, varius magna. Nunc malesuada nisi ac dolor imperdiet, in vehicula lectus malesuada. Nullam vitae orci massa. Praesent fringilla ligula est, nec eleifend nunc vehicula vitae. Curabitur et mi ut diam feugiat congue. Mauris suscipit, ex in feugiat malesuada, lectus nulla volutpat leo, et varius nisi nisi sed enim. Nam iaculis risus eu viverra mollis.
+<br><br>
+Nam hendrerit pretium ipsum. Cras feugiat tellus a mauris ultricies, nec auctor magna ultricies. Pellentesque ornare pulvinar est, in dapibus nisi placerat non. Nullam convallis ante quis maximus consectetur. Pellentesque at nunc nec nisi viverra ultricies. Nulla ultricies a eros nec fermentum. Nulla facilisi. Ut enim orci, mattis non dolor eget, tristique gravida sem. Quisque libero quam, pharetra a lacinia sit amet, ultrices ac justo. In hac habitasse platea dictumst. Proin sit amet nulla et lectus fermentum rhoncus. Morbi quis porttitor justo. Donec libero augue, cursus nec lacinia sed, suscipit eu felis. Sed nibh enim, congue in enim ut, ornare semper nibh. Quisque consequat id ante eu gravida. Etiam eu justo rutrum, luctus turpis in, eleifend augue.
+<br><br>
+Aenean ac dolor ac quam cursus sodales. Donec est augue, ornare vitae nulla non, auctor luctus justo. Vivamus vitae aliquet enim. Cras a congue quam. Curabitur id erat vel enim congue efficitur in non felis. Sed interdum odio id risus feugiat, quis consequat odio tristique. Phasellus rhoncus purus sit amet rhoncus accumsan. Cras interdum vestibulum libero vel placerat. Nam posuere turpis et bibendum rhoncus. Quisque sodales sapien vel diam ornare rutrum.
+<br><br>
+Donec ex sapien, placerat vel dapibus ut, fringilla sagittis sem. Praesent eu euismod dui, ut volutpat justo. Ut et nibh enim. Nulla et sapien turpis. Maecenas bibendum libero ut felis feugiat, id luctus sapien condimentum. Curabitur sed purus pretium, sagittis lacus imperdiet, aliquam quam. Nam sed nisl finibus, eleifend massa in, mattis mauris. Sed efficitur felis justo, sit amet efficitur nisi sagittis mattis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Maecenas ac erat quis massa suscipit luctus. In facilisis massa non turpis mattis feugiat. Suspendisse potenti. Fusce blandit urna vitae ex bibendum aliquet. Curabitur vitae purus laoreet, congue tortor sed, ultricies lorem. Vivamus rhoncus, erat consectetur tempor tempor, magna sapien maximus enim, at ornare metus arcu sed est.
+<br><br>
+Aliquam dignissim elit quam, sed malesuada neque iaculis id. Sed dignissim, mauris et imperdiet bibendum, urna tellus varius arcu, ut pulvinar dui odio vitae nisi. Curabitur id turpis et ligula pretium dapibus vitae nec ipsum. Vivamus volutpat bibendum mauris, id lobortis odio dapibus quis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Praesent diam neque, feugiat id sollicitudin vitae, dignissim in dui. Pellentesque egestas porta purus, luctus facilisis nibh tristique porta. Cras fermentum, ex eget pellentesque ultricies, metus lectus aliquet lorem, nec mattis tortor arcu et sapien. Pellentesque egestas sapien rhoncus lacus laoreet lacinia. Integer pharetra velit lectus, nec efficitur ex egestas non. Nulla blandit vel justo ac semper. Vivamus malesuada nulla sit amet quam scelerisque aliquet non sed arcu. 
+	        							</div>
+	        					</div>
+	        					<!--this is a cthulic bunch of line breaks that just ensure the browser has room to scroll when the #content id is linked to-->
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+	        					<br>
+							</td>
+						</tr>
+					</table>
+				</div>
+		</div>
+    </body>
+</html>
+
+
+
+
